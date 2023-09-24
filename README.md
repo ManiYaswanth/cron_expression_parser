@@ -14,10 +14,10 @@ Before you begin, make sure you have the following installed:
 
 ### Installation
 
-Clone this repository(backend):
+Clone this repository:
 
 ```bash
-git clone https://github.com/ManiYaswanth/AI-Poem-Backend
+git clone https://github.com/ManiYaswanth/cron_expression_parser
 ```
 
 ## Usage
