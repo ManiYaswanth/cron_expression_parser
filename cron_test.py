@@ -5,7 +5,8 @@ from app.utils import tabulate_output
 
 class TestCronParser(unittest.TestCase):
     def test_valid_cron_string(self):
-        
+        '''test cases for valid cron strings and their expected result
+        '''
         valid_cron_strings = [
             ("*/15 0 1,15 * 1-5 /usr/bin/find", 
              """minute        0 15 30 45
@@ -30,6 +31,8 @@ command       /usr""")
             self.assertEqual(result, expected_result)
 
     def test_invalid_cron_string(self):
+        '''test cases for invalid cron strings and their exceptions as expected result
+        '''
         invalid_cron_strings = [
             ("* * * *", ValueError),
             ("* * * * * * *", ValueError),
@@ -45,6 +48,8 @@ command       /usr""")
                 
 
     def test_valid_cron_field(self):
+        '''test cases for valid cron strings and their expected result
+        '''
         valid_cron_field_strings = [("10-15", "minute", [10, 11, 12, 13, 14, 15]),
                                     ("10/15", "minute", [10, 25, 40, 55]),
                                     ("19-23", "hour", [19, 20, 21, 22, 23]),
@@ -59,6 +64,8 @@ command       /usr""")
             assert cron_field.values == expected_result
     
     def test_invalid_cron_fields(self):
+        '''test cases for invalid cron strings and their exceptions as expected result
+        '''
         valid_cron_field_strings = [("55-60", "minute", ValueError), # out of range for minute (0-59)
                                     ("-1/15", "minute", ValueError), #-1/15 "-" considered range indicator
                                     ("24", "hour", ValueError), # out of range for hour (0-23)

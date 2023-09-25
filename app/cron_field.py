@@ -25,5 +25,5 @@ class CronField:
         elif STEP_INDICATOR in self.cron_value:
             self.values = step_parser.parse(self.cron_value, self.field_name)
         else:
-            field_range_validation(self.field_name, self.cron_value)
-            self.values = [int(self.cron_value)]
+            self.cron_value = field_range_validation(self.field_name, self.cron_value)
+            self.values = [self.cron_value]
